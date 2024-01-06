@@ -1,0 +1,28 @@
+{% extends "myapp1/base.html" %}
+
+{% block content %}
+<style>
+    .card img {
+        width: 100%;
+        height: 200px; /* Высота изображения /
+        object-fit: cover; / Растягивание изображения для заполнения */
+    }
+</style>
+
+<div class="container">
+    <h2>Images</h2>
+
+    <div class="row">
+        {% for image in topics_with_images %}
+            <div class="col-md-4 mb-4">
+                <img src="{{ image.image.url }}" class="card-img-top" alt="Photo">
+            </div>
+        {% empty %}
+            <div class="col">
+                <p>No images available.</p>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock content %}
